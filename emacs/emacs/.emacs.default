@@ -1,0 +1,4 @@
+; Load the site-wide .emacs file
+(load "/usr/local/emacs/site-defaults.el")
+
+(load-defaults)

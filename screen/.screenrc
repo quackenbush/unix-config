@@ -1,0 +1,12 @@
+escape ^oa
+
+vbell off
+defscrollback 65536
+
+ignorecase on
+caption always
+#caption string "%{gk}%w %{wk} %72= | %l"
+#caption string "%{+b rk}%H%{gk} |%c %{yk}%d.%m.%Y | %72=Load: %l %{wk}"
+
+# Window tabs, second to last line
+caption always "%{gk}%?%-Lw%50L>%?%{bw}%n*%f %t%?(%u)%?%{gk}%?%+Lw%?%11` %=%{= kw}%110`%109`%122`%111`%10`%<"
