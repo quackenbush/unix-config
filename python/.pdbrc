@@ -1,0 +1,21 @@
+from pdb import Pdb
+import rlcompleter
+Pdb.complete = rlcompleter.Completer(locals()).complete
+
+import sys
+# If within SCons, which has borked readline by switching sys.stdout => Let's fix it
+if sys.stdout.__class__.__name__ == 'Unbuffered': sys.stdout = sys.__stdout__
+
+import os
+historypath = os.path.expanduser("~/.pdbhistory")
+
+def save_history(historypath=historypath): import readline; readline.write_history_file(historypath)
+
+import readline
+readline.set_history_length(1024)
+
+if os.path.exists(historypath) and not hasattr(readline, "pdb"): readline.read_history_file(historypath); readline.pdb = 1
+
+
+import atexit
+atexit.register(save_history)
